@@ -1,0 +1,260 @@
+[1mdiff --git a/AssignmentJigangJia/.gitattributes b/AssignmentJigangJia/.gitattributes[m
+[1mdeleted file mode 100644[m
+[1mindex bdb0cab..0000000[m
+[1m--- a/AssignmentJigangJia/.gitattributes[m
+[1m+++ /dev/null[m
+[36m@@ -1,17 +0,0 @@[m
+[31m-# Auto detect text files and perform LF normalization[m
+[31m-* text=auto[m
+[31m-[m
+[31m-# Custom for Visual Studio[m
+[31m-*.cs     diff=csharp[m
+[31m-[m
+[31m-# Standard to msysgit[m
+[31m-*.doc	 diff=astextplain[m
+[31m-*.DOC	 diff=astextplain[m
+[31m-*.docx diff=astextplain[m
+[31m-*.DOCX diff=astextplain[m
+[31m-*.dot  diff=astextplain[m
+[31m-*.DOT  diff=astextplain[m
+[31m-*.pdf  diff=astextplain[m
+[31m-*.PDF	 diff=astextplain[m
+[31m-*.rtf	 diff=astextplain[m
+[31m-*.RTF	 diff=astextplain[m
+[1mdiff --git a/AssignmentJigangJia/.gitignore b/AssignmentJigangJia/.gitignore[m
+[1mdeleted file mode 100644[m
+[1mindex 96374c4..0000000[m
+[1m--- a/AssignmentJigangJia/.gitignore[m
+[1m+++ /dev/null[m
+[36m@@ -1,43 +0,0 @@[m
+[31m-# Windows image file caches[m
+[31m-Thumbs.db[m
+[31m-ehthumbs.db[m
+[31m-[m
+[31m-# Folder config file[m
+[31m-Desktop.ini[m
+[31m-[m
+[31m-# Recycle Bin used on file shares[m
+[31m-$RECYCLE.BIN/[m
+[31m-[m
+[31m-# Windows Installer files[m
+[31m-*.cab[m
+[31m-*.msi[m
+[31m-*.msm[m
+[31m-*.msp[m
+[31m-[m
+[31m-# Windows shortcuts[m
+[31m-*.lnk[m
+[31m-[m
+[31m-# =========================[m
+[31m-# Operating System Files[m
+[31m-# =========================[m
+[31m-[m
+[31m-# OSX[m
+[31m-# =========================[m
+[31m-[m
+[31m-.DS_Store[m
+[31m-.AppleDouble[m
+[31m-.LSOverride[m
+[31m-[m
+[31m-# Thumbnails[m
+[31m-._*[m
+[31m-[m
+[31m-# Files that might appear on external disk[m
+[31m-.Spotlight-V100[m
+[31m-.Trashes[m
+[31m-[m
+[31m-# Directories potentially created on remote AFP share[m
+[31m-.AppleDB[m
+[31m-.AppleDesktop[m
+[31m-Network Trash Folder[m
+[31m-Temporary Items[m
+[31m-.apdisk[m
+[1mdiff --git a/AssignmentJigangJia/AssignmentJigangJia/assighment4/capitalizeInitial.java b/AssignmentJigangJia/AssignmentJigangJia/assighment4/capitalizeInitial.java[m
+[1mdeleted file mode 100644[m
+[1mindex 7ff4f62..0000000[m
+[1m--- a/AssignmentJigangJia/AssignmentJigangJia/assighment4/capitalizeInitial.java[m
+[1m+++ /dev/null[m
+[36m@@ -1,64 +0,0 @@[m
+[31m-import java.util.Scanner;[m
+[31m-[m
+[31m-public class capitalizeInitial {[m
+[31m-[m
+[31m-	public static void main(String[] args) {[m
+[31m-		capitalizeInitial ci= new capitalizeInitial();[m
+[31m-		String st=ci.input();[m
+[31m-		String [] words=ci.split(st);[m
+[31m-		String [] initial=ci.initial(words);[m
+[31m-		for (String capital: initial)[m
+[31m-		{[m
+[31m-			System.out.print(capital+" ");[m
+[31m-			[m
+[31m-		}[m
+[31m-	}[m
+[31m-	public String input()[m
+[31m-	{[m
+[31m-		Scanner sc= new Scanner(System.in);[m
+[31m-		String st=sc.nextLine();[m
+[31m-		sc.close();[m
+[31m-		return st;[m
+[31m-	}[m
+[31m-	public String [] split(String st)[m
+[31m-	{	int length=st.length();[m
+[31m-		[m
+[31m-		int count=0;[m
+[31m-		String temp="";[m
+[31m-		for (int i=0;i<length;i++ )[m
+[31m-		{	if (st.substring(i,i+1).equals(" "))[m
+[31m-			{	[m
+[31m-				count++;	[m
+[31m-			}[m
+[31m-		[m
+[31m-		}[m
+[31m-		String [] words= new String[count+1];[m
+[31m-		count=0;[m
+[31m-		for (int i=0;i<length;i++ )[m
+[31m-		{	if (st.substring(i,i+1).equals(" "))[m
+[31m-			{	[m
+[31m-				words[count]=temp;[m
+[31m-				temp="";[m
+[31m-				count++;[m
+[31m-			}[m
+[31m-		else{	[m
+[31m-			temp=temp+st.substring(i,i+1);[m
+[31m-			}[m
+[31m-		}[m
+[31m-		words[count]=temp;		[m
+[31m-		return words;[m
+[31m-	}[m
+[31m-	[m
+[31m-	public String [] initial(String [] words)[m
+[31m-	{	int length=words.length;[m
+[31m-		String [] capital= new String[length];[m
+[31m-		for (int i=0;i<length;i++)[m
+[31m-		{[m
+[31m-			String init=words[i].substring(0, 1).toUpperCase();[m
+[31m-			capital[i]=init+words[i].substring(1);[m
+[31m-			[m
+[31m-		}[m
+[31m-		[m
+[31m-		return capital;[m
+[31m-	}[m
+[31m-}[m
+[1mdiff --git a/AssignmentJigangJia/AssignmentJigangJia/assighment4/capitalizeInitialTest.java b/AssignmentJigangJia/AssignmentJigangJia/assighment4/capitalizeInitialTest.java[m
+[1mdeleted file mode 100644[m
+[1mindex 292f60a..0000000[m
+[1m--- a/AssignmentJigangJia/AssignmentJigangJia/assighment4/capitalizeInitialTest.java[m
+[1m+++ /dev/null[m
+[36m@@ -1,21 +0,0 @@[m
+[31m-import static org.junit.Assert.*;[m
+[31m-[m
+[31m-import org.junit.Test;[m
+[31m-[m
+[31m-public class capitalizeInitialTest {[m
+[31m-	capitalizeInitial ci= new capitalizeInitial();[m
+[31m-	@Test[m
+[31m-	public void testSplit() {[m
+[31m-		String  st="we love seattle and will live here for a long time.";[m
+[31m-		String [] stringArray={"we","love","seattle","and","will","live","here","for","a","long","time."};[m
+[31m-		assertArrayEquals(ci.split(st),stringArray);[m
+[31m-	}[m
+[31m-	@Test[m
+[31m-	public void testInitial() {[m
+[31m-		String [] stringArray={"we","love","seattle","and","will","live","here","for","a","long","time."};[m
+[31m-		String [] capitalized={"We","Love","Seattle","And","Will","Live","Here","For","A","Long","Time."};[m
+[31m-		assertArrayEquals(ci.initial(stringArray),capitalized);[m
+[31m-	}[m
+[31m-[m
+[31m-[m
+[31m-}[m
+[1mdiff --git a/AssignmentJigangJia/AssignmentJigangJia/assighment4/cowBull.java b/AssignmentJigangJia/AssignmentJigangJia/assighment4/cowBull.java[m
+[1mdeleted file mode 100644[m
+[1mindex d753416..0000000[m
+[1m--- a/AssignmentJigangJia/AssignmentJigangJia/assighment4/cowBull.java[m
+[1m+++ /dev/null[m
+[36m@@ -1,52 +0,0 @@[m
+[31m-import java.util.Random;[m
+[31m-import java.util.Scanner;[m
+[31m-[m
+[31m-public class cowBull {[m
+[31m-[m
+[31m-	public static void main(String[] args) {[m
+[31m-	Random rand= new Random();[m
+[31m-	String key=rand.nextInt(8999)+1000+"";[m
+[31m-	cowBull cb= new cowBull();[m
+[31m-		for(;;)[m
+[31m-		{	String answer=cb.input();[m
+[31m-		int [] cowbull=cb.check(key, answer);[m
+[31m-		System.out.println(cowbull[0]+"cow "+cowbull[1]+"bull!");[m
+[31m-			if (cowbull[1]==4)[m
+[31m-			{	System.out.println("YOU WIN!!!");[m
+[31m-				break;[m
+[31m-			}[m
+[31m-		}[m
+[31m-	}[m
+[31m-	public String input()[m
+[31m-	{[m
+[31m-		@SuppressWarnings("resource")[m
+[31m-		Scanner sc= new Scanner(System.in);[m
+[31m-		String number=sc.next();[m
+[31m-		return number;[m
+[31m-	}[m
+[31m-	[m
+[31m-	public int[] check(String key, String answer)[m
+[31m-	{[m
+[31m-		int [] cb={0,0};[m
+[31m-		[m
+[31m-		for(int i=0;i<4;i++)[m
+[31m-		{[m
+[31m-			if( key.substring(i, i+1).equals(answer.substring(i,i+1)))[m
+[31m-			{[m
+[31m-				cb[1]++;[m
+[31m-			}[m
+[31m-			for(int k=0;k<4;k++)[m
+[31m-			{[m
+[31m-				if (key.substring(i, i+1).equals(answer.substring(k,k+1)))[m
+[31m-				{[m
+[31m-					cb[0]++;					[m
+[31m-				}[m
+[31m-				[m
+[31m-			}[m
+[31m-		}[m
+[31m-		[m
+[31m-		cb[0]=cb[0]-cb[1];[m
+[31m-		[m
+[31m-		return cb;[m
+[31m-	}[m
+[31m-}[m
+[1mdiff --git a/AssignmentJigangJia/AssignmentJigangJia/assighment4/fibonacci.java b/AssignmentJigangJia/AssignmentJigangJia/assighment4/fibonacci.java[m
+[1mdeleted file mode 100644[m
+[1mindex d11b2f5..0000000[m
+[1m--- a/AssignmentJigangJia/AssignmentJigangJia/assighment4/fibonacci.java[m
+[1m+++ /dev/null[m
+[36m@@ -1,35 +0,0 @@[m
+[31m-import java.util.Scanner;[m
+[31m-[m
+[31m-public class fibonacci {[m
+[31m-[m
+[31m-	public static void main(String[] args) {[m
+[31m-		fibonacci f= new fibonacci();[m
+[31m-		int number=f.input();[m
+[31m-		f.output(number);[m
+[31m-[m
+[31m-	}[m
+[31m-	public int input()[m
+[31m-	{[m
+[31m-		Scanner sc= new Scanner(System.in);[m
+[31m-		int number=sc.nextInt();[m
+[31m-		sc.close();[m
+[31m-		return number;[m
+[31m-	}[m
+[31m-	public void output(int number)[m
+[31m-	{	int m=1;[m
+[31m-		int n=1;[m
+[31m-		if (number>=1)[m
+[31m-		{[m
+[31m-			System.out.print(m+","+n);[m
+[31m-		}[m
+[31m-		while((m+n)<=number)[m
+[31m-		{[m
+[31m-			System.out.print(","+(m
